@@ -10,21 +10,6 @@ import java.util.TreeMap;
 public interface IInventoryBackend {
     ArrayList<Product> cart = new ArrayList<Product>();
 
-
-    /**
-     * Adds a new product to the backend's database.
-     * @param product the product to add
-     */
-    public void addProduct(IProduct product);
-
-
-    /**
-     * Removes a  product from the backend's database after checkout.
-     * @param product the product to checkout
-     * @param quantity the number of products to checkout
-     */
-    public void checkoutProduct(IProduct product, int quantity);
-
     /**
      * Adds a product to cart
      * @param product the product to add
@@ -36,8 +21,6 @@ public interface IInventoryBackend {
      * @param product the product to remove
      */
     public void removeProductFromCart(IProduct product);
-
-
 
 
     /**
@@ -66,7 +49,7 @@ public interface IInventoryBackend {
      * @param word word that must be contained in a product's title in result set
      * @return list of products found
      */
-    public TreeMap<IProduct> searchByProductName(String name);
+    public TreeMap<K, V> searchByProductName(String name);
 
     /**
      * Return the product uniquely identified by the UPC, or null if UPC is not
