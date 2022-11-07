@@ -15,10 +15,15 @@ public interface IGSTBackend {
     public void addProductToCart(IProduct product);
 
     /**
-     * Removess a product from cart
+     * Removes a product from cart
      * @param product the product to remove
      */
     public void removeProductFromCart(IProduct product);
+
+    /**
+     * Removes all products from cart
+     */
+    public void removeAllFromCart();
 
     /**
      * returns the cart

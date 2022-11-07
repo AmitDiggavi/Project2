@@ -26,6 +26,15 @@ public class InventoryBackend implements IGSTBackend {
     }
 
     /**
+     * Removes all products from cart
+     */
+    public void removeAllFromCart() {
+        for (IProduct product : cart) {
+            removeProductFromCart(product);
+        }
+    }
+
+    /**
      * returns the cart
      * @return List of products in the cart
      */
