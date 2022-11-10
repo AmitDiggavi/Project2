@@ -1,70 +1,24 @@
-Script started on Wed Nov  9 21:52:06 2022
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004hggit status[?2004l
-On branch BackendDeveloper
-Your branch is ahead of 'origin/BackendDeveloper' by 8 commits.
+Script started on Wed Nov  9 21:25:37 2022
+command: ../output_log.sh
+On branch DataWrangler
+Your branch is ahead of 'origin/DataWrangler' by 20 commits.
   (use "git push" to publish your local commits)
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	[31mjunit5.jar[m
 	[31mlog[m
-	[31mout/[m
 
 nothing added to commit but untracked files present (use "git add" to track)
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004hggog git log -1[?2004l
-[?1h=[33mcommit 6f45a008a979b7ccc81a5f1faa84139eb4db1ee6[m[33m ([m[1;36mHEAD -> [m[1;32mBackendDeveloper[m[33m)[m[m
-Author: Matthew Moy <mgmoy@wisc.edu>[m
-Date:   Wed Nov 9 21:51:38 2022 -0600[m
+[?1h=[33mcommit 556bce26085624026e634713dea8fff88a33ce03[m[33m ([m[1;36mHEAD -> [m[1;32mDataWrangler[m[33m)[m[m
+Author: adubov1 <adubov@cps.edu>[m
+Date:   Wed Nov 9 21:23:48 2022 -0600[m
 [m
-    interface and makefile[m
-[K[?1l>[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004hmmake clean[?2004l
-rm *.class
-rm: *.class: No such file or directory
-make: *** [clean] Error 1
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004hlls[?2004l
-BackendDeveloperTests.java	MapADT.java
-IGSTBackend.java		Product.java
-IGSTMapperFrontend.java		ProductLoader.java
-IProduct.java			Project2_DW_blue.iml
-IProductLoader.java		SortedCollectionInterface.java
-ITreeMap.java			junit5.jar
-IUPCChecker.java		log
-InventoryBackend.java		out
-Makefile			products.xml
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004hmmake runTests[?2004l
-javac -cp .:junit5.jar InventoryBackend.java BackendDeveloperTests.java
-java -jar junit5.jar --class-path=. --include-classname=".*" --select-class=BackendDeveloperTests
+    fix make test target[m
+[K[?1l>DataWranglerTests.java		IUPCChecker.java		Project2_DW_blue.iml
+IGSTBackend.java		InventoryBackend.java		SortedCollectionInterface.java
+IGSTMapperFrontend.java		Makefile			junit5.jar
+IProduct.java			MapADT.java			log
+IProductLoader.java		Product.java			products.xml
+ITreeMap.java			ProductLoader.java
 
-Thanks for using JUnit! Support its development at https://junit.org/sponsoring
-
-[36m╷[0m
-[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
-[36m│  └─[0m [36mBackendDeveloperTests[0m [32m✔[0m
-[36m│     ├─[0m [34mtestClearCart()[0m [32m✔[0m
-[36m│     ├─[0m [34mtestResetFilters()[0m [32m✔[0m
-[36m│     ├─[0m [34mtestCategoryFilter()[0m [32m✔[0m
-[36m│     ├─[0m [34mtestPriceFilter()[0m [32m✔[0m
-[36m│     └─[0m [34mtestAddToCart()[0m [32m✔[0m
-[36m└─[0m [36mJUnit Vintage[0m [32m✔[0m
-
-Test run finished after 86 ms
-[         3 containers found      ]
-[         0 containers skipped    ]
-[         3 containers started    ]
-[         0 containers aborted    ]
-[         3 containers successful ]
-[         0 containers failed     ]
-[         5 tests found           ]
-[         0 tests skipped         ]
-[         5 tests started         ]
-[         0 tests aborted         ]
-[         5 tests successful      ]
-[         0 tests failed          ]
-
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewmoy/cs400/Project2_DW_blue[0m[27m[24m[Jmatthewmoy@MacBook-Pro Project2_DW_blue % [K[?2004heexit[?2004l
-
-Saving session...
-...saving history...truncating history files...
-...completed.
-
-Script done on Wed Nov  9 21:52:41 2022
+Script done on Wed Nov  9 21:25:37 2022
