@@ -2,133 +2,133 @@
 <products>
     <product>
         <name>Chicken Breast</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$9.50</price>
         <quantity>10</quantity>
         <UPC>8904319300894</UPC>
     </product>
     <product>
         <name>Beef Steak</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$12.50</price>
         <quantity>10</quantity>
         <UPC>5410667151390</UPC>
     </product>
     <product>
         <name>Pork Chops</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$8.50</price>
         <quantity>10</quantity>
         <UPC>2868598022112</UPC>
     </product>
     <product>
         <name>Turkey Breast</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$10.50</price>
         <quantity>10</quantity>
         <UPC>0810051802924</UPC>
     </product>
     <product>
         <name>Chicken Wings</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$7.50</price>
         <quantity>10</quantity>
         <UPC>3662994007044</UPC>
     </product>
     <product>
         <name>Chicken Thighs</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$8.50</price>
         <quantity>10</quantity>
         <UPC>0213731805299</UPC>
     </product>
     <product>
         <name>Chicken Legs</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$2.50</price>
         <quantity>10</quantity>
         <UPC>4088600511368</UPC>
     </product>
     <product>
         <name>Chicken Drumsticks</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$1.50</price>
         <quantity>10</quantity>
         <UPC>0818480018725</UPC>
     </product>
     <product>
         <name>Ground Beef</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$7.50</price>
         <quantity>10</quantity>
         <UPC>0024354580162</UPC>
     </product>
     <product>
         <name>Beef Wings</name>
-        <catagory>Meats</catagory>
+        <category>Meats</category>
         <price>$6.50</price>
         <quantity>10</quantity>
         <UPC>0810051802924</UPC>
     </product>
     <product>
         <name>Broccoli</name>
-        <catagory>Vegetables</catagory>
+        <category>Vegetables</category>
         <price>$4.25</price>
         <quantity>20</quantity>
         <UPC>4056289367088</UPC>
     </product>
     <product>
         <name>Carrots</name>
-        <catagory>Vegetables</catagory>
+        <category>Vegetables</category>
         <price>$2.25</price>
         <quantity>20</quantity>
         <UPC>5202908000174</UPC>
     </product>
     <product>
         <name>Green Beans</name>
-        <catagory>Vegetables</catagory>
+        <category>Vegetables</category>
         <price>$3.25</price>
         <quantity>20</quantity>
         <UPC>0037597902509</UPC>
     </product>
     <product>
         <name>Grapes</name>
-        <catagory>Fruits</catagory>
+        <category>Fruits</category>
         <price>$6.85</price>
         <quantity>15</quantity>
         <UPC>0057316180346</UPC>
     </product>
     <product>
         <name>Apples</name>
-        <catagory>Fruits</catagory>
+        <category>Fruits</category>
         <price>$5.85</price>
         <quantity>15</quantity>
         <UPC>0708820867178</UPC>
     </product>
     <product>
         <name>Oranges</name>
-        <catagory>Fruits</catagory>
+        <category>Fruits</category>
         <price>$4.85</price>
         <quantity>15</quantity>
         <UPC>5028911001584</UPC>
     </product>
     <product>
         <name>Pizza</name>
-        <catagory>Frozen Foods</catagory>
+        <category>Frozen Foods</category>
         <price>$4.79</price>
         <quantity>30</quantity>
         <UPC>0070590952058</UPC>
     </product>
     <product>
         <name>2% Milk</name>
-        <catagory>Dairy</catagory>
+        <category>Dairy</category>
         <price>$3.19</price>
         <quantity>10</quantity>
         <UPC>0602804013110</UPC>
     </product>
     <product>
         <name>Ice Cream</name>
-        <catagory>Dairy</catagory>
+        <category>Dairy</category>
         <price>$4.99</price>
         <quantity>10</quantity>
         <UPC>4806531960013</UPC>
@@ -136,42 +136,42 @@
 
     <product>
         <name>Yogurt</name>
-        <catagory>Dairy</catagory>
+        <category>Dairy</category>
         <price>$2.99</price>
         <quantity>10</quantity>
         <UPC>0070590952058</UPC>
     </product>
     <product>
         <name>Apple Juice</name>
-        <catagory>Beverages</catagory>
+        <category>Beverages</category>
         <price>$2.99</price>
         <quantity>10</quantity>
         <UPC>0602804013110</UPC>
     </product>
     <product>
         <name>Orange Juice</name>
-        <catagory>Beverages</catagory>
+        <category>Beverages</category>
         <price>$2.99</price>
         <quantity>10</quantity>
         <UPC>4806531960013</UPC>
     </product>
     <product>
         <name>Water</name>
-        <catagory>Beverages</catagory>
+        <category>Beverages</category>
         <price>$1.99</price>
         <quantity>10</quantity>
         <UPC>5035766048800</UPC>
     </product>
     <product>
         <name>Chips</name>
-        <catagory>Snacks</catagory>
+        <category>Snacks</category>
         <price>$1.99</price>
         <quantity>10</quantity>
         <UPC>6333633354634</UPC>
     </product>
     <product>
         <name>Popcorn</name>
-        <catagory>Snacks</catagory>
+        <category>Snacks</category>
         <price>$1.99</price>
         <quantity>10</quantity>
         <UPC>2868711018633</UPC>

@@ -1,11 +1,11 @@
 public class Product implements IProduct {
     String name;
     String category;
-    float price;
+    double price;
     int quantity;
     String UPC;
 
-    public Product(String name, String category, float price, int quantity, String UPC) {
+    public Product(String name, String category, double price, int quantity, String UPC) {
         this.name = name;
         this.category = category;
         this.price = price;
