@@ -8,6 +8,7 @@ import java.util.TreeMap;
  * of the product Mapper app using tree maps.
  */
 public interface IGSTBackend {
+
     /**
      * Adds a product to cart
      * @param product the product to add
@@ -58,7 +59,7 @@ public interface IGSTBackend {
      * @param name word that must be contained in a product's title in result set
      * @return list of products found
      */
-    public IProduct[] searchByProductName(String name);
+    public ArrayList<IProduct> searchByProductName(String name);
 
     /**
      * Return the product uniquely identified by the UPC, or null if UPC is not
@@ -80,7 +81,7 @@ public interface IGSTBackend {
      * filter is currently set.
      * @return the string used as the price filter, or null if none is set
      */
-    public String getPriceFilter();
+    public Double getPriceFilter();
 
     /**
      * Resets the price filter to null (no filter).
