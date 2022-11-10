@@ -1,11 +1,9 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
 
 public class InventoryBackend implements IGSTBackend {
     ArrayList<IProduct> cart = new ArrayList<>();
-    protected TreeMap<String, IProduct> treemap = new TreeMap<>();
-    protected String priceFilter = "";
+    protected ITreeMap<String, IProduct> treemap;
+    protected Double priceFilter;
     protected String categoryFilter = "";
 
 
@@ -29,9 +27,7 @@ public class InventoryBackend implements IGSTBackend {
      * Removes all products from cart
      */
     public void removeAllFromCart() {
-        for (IProduct product : cart) {
-            removeProductFromCart(product);
-        }
+        cart.clear();
     }
 
     /**
@@ -75,8 +71,45 @@ public class InventoryBackend implements IGSTBackend {
      * @param word word that must be contained in a product's title in result set
      * @return list of products found
      */
-    public IProduct[] searchByProductName(String word){
+    public ArrayList<IProduct> searchByProductName(String word){
+        ArrayList<IProduct> listOfProducts = new ArrayList<>();
 
+        for (IProduct product : treemap) {
+            if (getPriceFilter() == 0.0 && getCategoryFilter().equals("")) {
+                if (word.equals("")) {
+                    //no filter and no search word
+                    listOfProducts.add(product);
+                }
+                else {
+                    // no filter searching by word
+                    if (product.getName().toLowerCase().contains(word.toLowerCase())) {
+                        listOfProducts.add(product);
+                    }
+                }
+            } else if (word.equals("")) {
+                if (product.getCategory().contains(getCategoryFilter()) ||
+                    product.getPrice() <= priceFilter) {
+                    //no word display all based on filter
+                    listOfProducts.add(product);
+                }
+            } else if (product.getName().toLowerCase().contains(word.toLowerCase()) &&
+                (product.getCategory().contains(getCategoryFilter()) &&
+                    product.getPrice() <= priceFilter)) {
+                //searching by word and satisfies both filters
+                listOfProducts.add(product);
+
+            } else if ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
+                (product.getCategory().contains(getCategoryFilter()))) ||
+                ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
+                    product.getPrice() <= priceFilter))) {
+                //searching by word and one filter
+                listOfProducts.add(product);
+            }
+        }
+
+        return word.equals("")
+            ? listOfProducts
+            : (listOfProducts.size() == 0 ? null : listOfProducts);
     }
 
     /**
@@ -101,7 +134,7 @@ public class InventoryBackend implements IGSTBackend {
      * @param filterBy the string that the product's price must be less than or equal to
      */
     public void setPriceFilter(String filterBy){
-        priceFilter = filterBy;
+       priceFilter = Double.parseDouble(filterBy);
     }
 
     /**
@@ -109,7 +142,7 @@ public class InventoryBackend implements IGSTBackend {
      * filter is currently set.
      * @return the string used as the price filter, or null if none is set
      */
-    public String getPriceFilter(){
+    public Double getPriceFilter(){
         return priceFilter;
     }
 
@@ -117,7 +150,7 @@ public class InventoryBackend implements IGSTBackend {
      * Resets the price filter to null (no filter).
      */
     public void resetPriceFilter(){
-        priceFilter = "";
+        priceFilter = 0.0;
     }
 
 }
