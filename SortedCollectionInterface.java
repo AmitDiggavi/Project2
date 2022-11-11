@@ -1,3 +1,5 @@
+import com.sun.source.doctree.ValueTree;
+
 import java.util.NoSuchElementException;
 
 
@@ -10,5 +12,7 @@ public interface SortedCollectionInterface<T extends Comparable<T>> {
     public int size();
 
     public boolean isEmpty();
+
+    
 
 }
