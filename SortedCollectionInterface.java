@@ -1,8 +1,3 @@
-import com.sun.source.doctree.ValueTree;
-
-import java.util.NoSuchElementException;
-
-
 public interface SortedCollectionInterface<T extends Comparable<T>> {
 
     public boolean insert(T data) throws NullPointerException, IllegalArgumentException;
@@ -13,6 +8,6 @@ public interface SortedCollectionInterface<T extends Comparable<T>> {
 
     public boolean isEmpty();
 
-    
+
 
 }

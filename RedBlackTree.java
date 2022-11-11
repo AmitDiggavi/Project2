@@ -201,15 +201,6 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         node1.blackHeight = change;
     }
 
-    /*
-    public void remove(Node<T> child)
-    {
-        Node<T> node = root;
-
-    }
-
-     */
-
 
 
 
@@ -405,3 +396,4 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
 
 
 }
+
