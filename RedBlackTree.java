@@ -6,8 +6,6 @@
 // Lecturer: Florian Heimerl
 // Notes to Grader: <optional extra notes>
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.LinkedList;
 
 
@@ -405,56 +403,5 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
                 "\nin order: " + this.toInOrderString();
     }
 
-    /*
-    /**
-     * tests to see if the inserted node is the inner grandchild, and parent is red, and uncle is black.
 
-    @Test
-    public void test1()
-    {
-        RedBlackTree tree = new RedBlackTree();
-        tree.insert(4);
-        tree.insert(2);
-        tree.insert(9);
-        tree.insert(8);
-        tree.insert(10);
-        assertEquals(0, tree.root.rightChild.leftChild.blackHeight);
-        assertEquals(0, tree.root.rightChild.rightChild.blackHeight);
-        assertEquals(1, tree.root.rightChild.blackHeight);
-    }
-
-    /**
-     *  tests to see if the parent is red and the root is red
-
-    @Test
-    public void test2()
-    {
-        RedBlackTree rbt = new RedBlackTree();
-        rbt.insert(17);
-        rbt.insert(19); // 17 is root and 19 is inserted
-
-        assertEquals(0, rbt.root.rightChild.blackHeight);
-        assertEquals(1, rbt.root.blackHeight);
-    }
-
-    /**
-     *  tests to see if the parent and uncle nodes are red
-
-    @Test
-    public void test3()
-    {
-        RedBlackTree rbt = new RedBlackTree();
-
-        rbt.insert(45);
-        rbt.insert(26);
-        rbt.insert(72);
-        rbt.insert(32);
-
-        System.out.println(rbt);
-        // assertEquals(1, rbt.root.rightChild.leftChild.blackHeight);
-        // assertEquals(1, rbt.root.rightChild.rightChild.blackHeight);
-
-
-    }
-    */
 }
