@@ -60,9 +60,9 @@ public class GSTMapperFrontendTest
       
 	  Scanner scn2 = new Scanner(System.in);
 	  
-	  UPCChecker checker = new IUPCPlaceHolder();
+	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IIventoryPlaceHolder();
+	  InventoryBackend end = new IventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -120,9 +120,9 @@ public class GSTMapperFrontendTest
       
 	  Scanner scn2 = new Scanner(System.in);
 	  
-	  UPCChecker checker = new IUPCPlaceHolder();
+	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IIventoryPlaceHolder();
+	  InventoryBackend end = new IventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -182,9 +182,9 @@ public class GSTMapperFrontendTest
       
 	  Scanner scn2 = new Scanner(System.in);
 	  
-	  UPCChecker checker = new IUPCPlaceHolder();
+	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IIventoryPlaceHolder();
+	  InventoryBackend end = new IventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -303,9 +303,9 @@ public class GSTMapperFrontendTest
 	  
       Scanner scn2 = new Scanner(System.in);
 	  
-      UPCChecker checker = new IUPCPlaceHolder();
+      UPCChecker checker = new UPCChecker();
 	  
-      InventoryBackend end = new IIventoryPlaceHolder();
+      InventoryBackend end = new IventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -428,6 +428,37 @@ public class GSTMapperFrontendTest
       assertEquals(expected, check);
 	  
   }
-     
-     
+  
+   /*
+    *Code review BackendDeveloper Test 1
+    *Testing add and remove methods of backend
+    */
+    @Test
+    public void CodeReviewBackendDeveloperTest1
+    {
+	  
+        Product chips = new Product("Chips", "Snacks",
+            3.0f, 1, "123456788");
+        Product beef = new Product("Beef", "Meats",
+            5.0f, 1, "123456789");
+        backend.addProductToCart(chips);
+        backend.addProductToCart(beef);
+        backend.removeProductFromCart(chips);
+        assertEquals(beef, backend.cart.get(0));
+        backend.removeProductFromCart(beef);
+        assertEquals(0, backend.cart.size());
+    }
+
+
+    /*Code review BackendDeveloper Test 2
+     * Testing getByUpc methods of backend
+     */
+    @Test
+    public void CodeReviewBackendDeveloperTest2
+    {
+      Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
+
+      assertEquals(chips, backend.getByUpc("123456788");
+    }
+    
 }
