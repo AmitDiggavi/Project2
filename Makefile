@@ -17,5 +17,22 @@ runFrontendDeveloperTests: GSTMapperFrontend.java GSTMapperFrontendTests.java
 compileTests: Product.java ProductLoader.java InventoryBackend.java BackendDeveloperTests.java DataWranglerTests.java GSTMapperFrontend.java GSTMapperFrontendTests.java
 	javac -cp .:junit5.jar BackendDeveloperTests.java DataWranglerTests.java GSTMapperFrontendTests.java
 
+run: 
+	javac IGSTMapperFrontend.java
+	javac IProduct.java
+	javac IProductLoader.java
+	javac ITreeMap.java
+	javac IUPCChecker.java
+	javac MapADT.java
+	javac Product.java
+	javac ProductLoader.java
+	javac RedBlackTree.java
+	javac TreeMap.java
+	javac UPCChecker.java
+runAlgoTests:
+	javac -cp .:junit5.jar TreeMap.java  AlgorithmEngineerTests.java
+	java -jar junit5.jar --class-path=. --include-classname=".*" --select-class=AlgorithmEngineerTests
+
+
 clean:
 	@rm *.class

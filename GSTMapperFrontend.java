@@ -11,7 +11,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
     
     private Scanner scn;
 	
-    public GSTMapperFrontend(IGSTBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
+    public GSTMapperFrontend(InventoryBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
     {
     	this.backend = backend;
     	
@@ -174,11 +174,11 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		
 		System.out.println("          Enter Maximum Price (Enter 0.0 to reset filter): ");
 		
-		scn.nextDouble();
+		scn.nextLine();
 		
-		Double price = scn.nextDouble();
+		String price = scn.nextLine();
 		
-		if(price == 0.0)
+		if(price.equals(" "))
 		{
 			backend.resetPriceFilter();
 		}
@@ -274,7 +274,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		else if(option == cart.size() + 1)
 		{
 			System.out.println("Emptied cart");
-			backend.removeAllProductFromCart();
+			backend.removeAllFromCart();
 			
 		}
 		
@@ -328,7 +328,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 	    
 	    System.out.println("Thank you for shopping");
 	    
-	    backend.removeAllProductFromCart();
+	    backend.removeAllFromCart();
 	    
 	    displayMainMenu();
 		

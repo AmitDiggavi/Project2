@@ -62,7 +62,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -122,7 +122,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -184,7 +184,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -305,7 +305,7 @@ public class GSTMapperFrontendTest
 	  
       UPCChecker checker = new UPCChecker();
 	  
-      InventoryBackend end = new IventoryBackend();
+      InventoryBackend end = new InventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -436,7 +436,7 @@ public class GSTMapperFrontendTest
     @Test
     public void CodeReviewBackendDeveloperTest1()
     {
-        InventoryBackend backend = new IventoryBackend();  
+		InventoryBackend backend = new InventoryBackend();
         Product chips = new Product("Chips", "Snacks",
             3.0f, 1, "123456788");
         Product beef = new Product("Beef", "Meats",
@@ -456,163 +456,10 @@ public class GSTMapperFrontendTest
     @Test
     public void CodeReviewBackendDeveloperTest2()
     {
-      InventoryBackend backend = new IventoryBackend();
-
+		InventoryBackend backend = new InventoryBackend();
       Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
 
-      assertEquals(null, backend.getByUpc("12345678");
+      assertEquals(chips, backend.getByUPC("123456788"));
     }
     
-   /*
-    *Integration Test 1
-    *Testing both the addProduct and displayCart
-    *adding products to cart and displaying the product
-    */ 
-    public void IntegrationTest1()
-    {
-      TextUITester tester = new TextUITester("2/nchips/n1/n5/n2/n0/n8/n");
-	  
-      Scanner scn2 = new Scanner(System.in);
-	  
-      UPCChecker checker = new UPCChecker();
-	  
-      InventoryBackend end = new IventoryBackend();
-
-      Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
-     
-      Product beef = new Product("Beef", "Meats", 5.0f, 1, "123456789");
-	  
-      GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
-      
-      test.runCommandLoop();
-     
-      String output = "Welcome to the Grocery Store Inventory Application!\n"
-      		+ "—--------------------------------------------------\n"
-      		+ "\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "You are in the Search Item menu:\n"
-      		+ "          Enter item name:\n"
-      		+ "Category filter: null\n"
-      		+ "Price filter: null\n"
-      		+ "1. Chips $1.99\n"
-      		+ "Which product would you like to add to cart? 1 - 1\n"
-      		+ "Select 0 to cancel.\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "You are in the Search Item menu:\n"
-      		+ "          Enter item name:\n"
-      		+ "Category filter: null\n"
-      		+ "Price filter: null\n"
-      		+ "1. Beef Wings $6.5\n"
-      		+ "Which product would you like to add to cart? 1 - 1\n"
-      		+ "Select 0 to cancel.\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "Items in cart:\n"
-      		+ "1. Chips $1.99\n"
-      		+ "2. Beef Wings $6.5\n"
-      		+ "Your total is $8.49\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "Goodbye, Thanks for shopping!\n";
-    
-      String check = tester.checkOutput();
-      
-      assertEquals(expected, check);
-	
-    }
-
-
-
-   /*
-    *Integration Test 2
-    *Testing getByUpc method
-    *searching for product using invalid upc
-    */ 
-    public void IntegrationTest1()
-    {
-      TextUITester tester = new TextUITester("2/n0/n8/n");
-	  
-      Scanner scn2 = new Scanner(System.in);
-	  
-      UPCChecker checker = new UPCChecker();
-	  
-      InventoryBackend end = new IventoryBackend();
-
-      Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
-     
-      Product beef = new Product("Beef", "Meats", 5.0f, 1, "123456789");
-	  
-      GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
-      
-      test.runCommandLoop();
-
-       String output = "Welcome to the Grocery Store Inventory Application!\n"
-      		+ "—--------------------------------------------------\n"
-      		+ "\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "You are in the Lookup UPC menu:\n"
-      		+ "          Enter UPC to look up:\n"
-      		+ "Invalid UPC\n"
-      		+ "You are in the Main Menu:\n"
-      		+ "          1)Lookup UPC\n"
-      		+ "          2)Search by Item name\n"
-      		+ "          3)Search by Category\n"
-      		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
-      		+ "\n"
-      		+ "Goodbye, Thanks for shopping!\n";
-   
-      String check = tester.checkOutput();
-      
-      assertEquals(expected, check);
-	        
-
-     }
-
 }
