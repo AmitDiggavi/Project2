@@ -434,7 +434,7 @@ public class GSTMapperFrontendTest
     *Testing add and remove methods of backend
     */
     @Test
-    public void CodeReviewBackendDeveloperTest1
+    public void CodeReviewBackendDeveloperTest1()
     {
 	  
         Product chips = new Product("Chips", "Snacks",
@@ -454,11 +454,11 @@ public class GSTMapperFrontendTest
      * Testing getByUpc methods of backend
      */
     @Test
-    public void CodeReviewBackendDeveloperTest2
+    public void CodeReviewBackendDeveloperTest2()
     {
       Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
 
-      assertEquals(chips, backend.getByUpc("123456788");
+      assertEquals(chips, backend.getByUpc("123456788"));
     }
     
 }

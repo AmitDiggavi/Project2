@@ -11,7 +11,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
     
     private Scanner scn;
 	
-    public GSTMapperFrontend(IInventoryBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
+    public GSTMapperFrontend(IGSTBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
     {
     	this.backend = backend;
     	
