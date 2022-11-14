@@ -88,4 +88,15 @@ g
         assertFalse(map.containsKey("y"));
 
     }
+
+    /**
+     *
+     */
+
+    @Test
+    public void IntegrationTest1()
+    {
+        ProductLoader loaded = new ProductLoader();
+
+    }
 }
