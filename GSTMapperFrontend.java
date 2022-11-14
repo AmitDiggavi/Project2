@@ -11,7 +11,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
     
     private Scanner scn;
 	
-    public GSTMapperFrontend(IInventoryBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
+    public GSTMapperFrontend(IGSTBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
     {
     	this.backend = backend;
     	
@@ -274,7 +274,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		else if(option == cart.size() + 1)
 		{
 			System.out.println("Emptied cart");
-			backend.removeAllProductFromCart(cart);
+			backend.removeAllProductFromCart();
 			
 		}
 		
@@ -328,7 +328,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 	    
 	    System.out.println("Thank you for shopping");
 	    
-	    backend.removeAllProductFromCart(cart);
+	    backend.removeAllProductFromCart();
 	    
 	    displayMainMenu();
 		
