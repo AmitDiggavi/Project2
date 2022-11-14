@@ -172,13 +172,13 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 	{
 		System.out.println("You are in the Filter by Maximum Price Menu:");
 		
-		System.out.println("          Enter Maximum Price (Enter 0.0 to reset filter): ");
+		System.out.println("          Enter Maximum Price: ");
 		
 		scn.nextLine();
 		
 		String price = scn.nextLine();
 		
-		if(price.equals(" "))
+		if(price.equals(null))
 		{
 			backend.resetPriceFilter();
 		}

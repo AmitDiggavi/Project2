@@ -63,57 +63,8 @@ public class GSTMapperFrontendTests
 	  UPCChecker checker = new UPCChecker();
 	  
 	  InventoryBackend end = new InventoryBackend();
-          Product product = new Product("Chicken Breast", "Meats", 9.50, 10, "8904319300894");
-	   
-	   Product product = new Product("Beef Steak", "Meats", 12.50, 10, "5410667151390");
-	   
-	   Product product = new Product("Pork Chops", "Meats", 8.50, 10, "2868598022112");
-	   
-	   Product product = new Product("Turkey Breast", "Meats", 10.50, 10, "0810051802924");
-	   
-	   Product product = new Product("Chicken Wings", "Meats", 7.50, 10, "3662994007044");
-	   
-	   Product product = new Product("Chicken Thighs", "Meats", 8.50, 10, "0213731805299");
-	   
-	   Product product = new Product("Chicken Legs", "Meats", 2.50, 10, "4088600511368");
-	   
-	   Product product = new Product("Chicken Drumsticks", "Meats", 1.50, 10, "0818480018725");
-	   
-	   Product product = new Product("Ground Beef", "Meats", 7.50, 10, "0024354580162");
-	   
-	   Product product = new Product("Beef Wings", "Meats", 6.50, 10, "0810051802924");
-	   
-	   Product product = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
-	   
-	   Product product = new Product("Carrots", "Vegetables", 2.25, 20, "5202908000174");
-	   
-	   Product product = new Product("Green Beans", "Vegetables", 3.25, 20, "0037597902509");
-	   
-	   Product product = new Product("Grapes", "Fruits", 6.85, 15, "0057316180346");
-	   
-	   Product product = new Product("Apples", "Fruits", 5.85, 15, "0708820867178");
-	   
-	   Product product = new Product("Oranges", "Fruits", 4.85, 15, "5028911001584");
-	   
-	   Product product = new Product("Pizza", "Frozen Foods", 4.79, 30, "0070590952058");
-	   
-	   Product product = new Product("2% Milk", "Dairy", 3.19, 10, "0602804013110");
-	   
-	   Product product = new Product("Ice Cream", "Dairy", 4.99, 10, "4806531960013");
-	   
-	   Product product = new Product("Yogurt", "Dairy", 2.99, 10, "0070590952058");
-	   
-	   Product product = new Product("Apple Juice", "Beverages", 2.99, 10, "0602804013110");
-	   
-	   Product product = new Product("Orange Juice", "Beverages", 2.99, 10, "4806531960013");
-	   
-	   Product product = new Product("Water", "Beverages", 1.99, 10, "5035766048800");
-
-	   Product product = new Product("Chips", "Snacks", 1.99, 10, "6333633354634");
-	   
-	   Product product = new Product("Popcorn", "Snacks", 1.99, 10, "2868711018633");
-	   
-		GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+          
+      	GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
 
 		test.runCommandLoop();
 
