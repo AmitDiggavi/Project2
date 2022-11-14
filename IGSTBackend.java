@@ -88,4 +88,6 @@ public interface IGSTBackend {
      */
     public void resetPriceFilter();
 
+    public void addProduct(IProduct product);
+
 }
