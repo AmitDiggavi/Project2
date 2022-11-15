@@ -11,7 +11,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
     
     private Scanner scn;
 	
-    public GSTMapperFrontend(InventoryBackend backend, IUPCChecker upcChecker, Scanner userInputScanner)
+    public GSTMapperFrontend(InventoryBackend backend, UPCChecker upcChecker, Scanner userInputScanner)
     {
     	this.backend = backend;
     	
@@ -100,9 +100,10 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 	  
 	  String upc = scn.nextLine();
 	  
+	  ArrayList<IProduct> productList = new ArrayList<>();
+	  
 	  if(upcChecker.check(upc))
 	  {
-		  ArrayList<IProduct> productList = new ArrayList<>();
 		  
 		  productList.add(backend.getByUPC(upc));
 		  
@@ -174,19 +175,13 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		
 		System.out.println("          Enter Maximum Price: ");
 		
+		backend.resetPriceFilter();
+		
 		scn.nextLine();
 		
-		String price = scn.nextLine();
-		
-		if(price.equals(null))
-		{
-			backend.resetPriceFilter();
-		}
-		
-		else
-		{
-			backend.setPriceFilter(price);
-		}
+		String price = scn.nextLine(); 
+
+	    backend.setPriceFilter(price);
 		
 		 displayMainMenu();
 		
