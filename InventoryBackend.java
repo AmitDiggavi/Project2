@@ -122,13 +122,10 @@ public class InventoryBackend implements IGSTBackend {
      * @return the product identified by the UPC, or null if UPC not in database
      */
     public IProduct getByUPC(String UPC){
-        for (IProduct product : treemap) {
-            if (product.getUPC().equals(UPC)) {
-                return product;
-            }
+        if (!treemap.containsKey(UPC)) {
+            return null;
         }
-
-        return null;
+        return treemap.get(UPC);
     }
 
     /**
