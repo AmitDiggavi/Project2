@@ -1,7 +1,7 @@
 public class Pair<KeyType extends Comparable<KeyType>, ValueType> implements Comparable<Pair<KeyType, ValueType>> {
 
-    private final KeyType key;
-    private final ValueType value;
+    private KeyType key;
+    private ValueType value;
 
     public Pair(KeyType key, ValueType value) {
         this.key = key;

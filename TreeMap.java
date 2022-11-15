@@ -6,8 +6,6 @@ import java.util.NoSuchElementException;
 public class TreeMap<KeyType extends Comparable<KeyType>, ValueType> extends RedBlackTree<Pair<KeyType, ValueType>>  implements ITreeMap<KeyType, ValueType> {
 
     int size = 0;
-    KeyType key;
-    ValueType value;
 
 
     @Override

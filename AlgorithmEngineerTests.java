@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import javax.security.auth.kerberos.KeyTab;
+
 import static org.junit.Assert.*;
 
 public class AlgorithmEngineerTests {
@@ -105,16 +107,47 @@ public class AlgorithmEngineerTests {
 
         for(IProduct product : loaded.loadProducts())
         {
-            boolean isWrong = checker.check(product.getUPC());
-            if (!isWrong) {
-                System.out.println(product.getName());
-
-            }
-//            assertTrue(checker.check(product.getUPC()));
+         assertTrue(checker.check(product.getUPC()));
         }
 
 
     }
 
+    /**
+     * This is to test the backend add and remove method
+     */
+
+    @Test
+    public void IntegrationTest2()
+    {
+        InventoryBackend backend = new InventoryBackend();
+        ProductLoader loader = new ProductLoader();
+        Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
+
+        backend.addProduct(product1);
+
+        assertEquals(1, backend.treemap.size());
+
+        backend.removeProductFromCart(product1);
+
+        assertEquals(0,backend.cart.size());
+
+    }
+
+    /**
+     * Testing the getCategory and getQuantity
+     * and also tests the backend
+     */
+
+    @Test
+    public void CodeReviewOfDataWrangler1()
+    {
+
+        Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
+        assertEquals("Meats", product1.getCategory());
+        assertEquals(10, product1.getQuantity());
+
+
+    }
 
 }
