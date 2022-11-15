@@ -87,7 +87,8 @@ public class GSTMapperFrontendTests
 				+ "\n"
 				+ "You are in the Lookup UPC menu:\n"
 				+ "          Enter UPC to look up:\n"
-				+ "Category filter:null\n"
+				+ "3662994007044\n"
+				+ "Category filter: \n"
 				+ "Price filter: null\n"
 				+ "1. Chicken Wings $7.5\n"
 				+ "Which product would you like to add to cart? 1 - 1\n"
@@ -475,18 +476,82 @@ public class GSTMapperFrontendTests
 
 
     /*Code review BackendDeveloper Test 2
-     * Testing getByUpc methods of backend
+     * Testing getByUpc method of backend
+     * it should return the same product as given upc
      */
     @Test
     public void CodeReviewBackendDeveloperTest2()
     {
 			InventoryBackend backend = new InventoryBackend();
 			ProductLoader loader = new ProductLoader();
-			for (IProduct product : loader.loadProducts()) {
-				backend.addProduct(product);
-			}
+		    Product Breast = new Product("Chicken Breast", "Meats", 9.50, 10, "8904319300894");
+
 
 			assertEquals("Chicken Breast", backend.getByUPC("8904319300894").getName());
+    }
+    
+    /*Integration test1
+     * load all products
+     * search items using a price filter
+     */
+    @Test
+    public void FrontEndTest1()
+    {
+
+  	  TextUITester tester = new TextUITester("");
+
+  		Scanner scn2 = new Scanner(System.in);
+
+  		UPCChecker checker = new UPCChecker();
+
+  		InventoryBackend end = new InventoryBackend();
+  		
+  		ProductLoader loader = new ProductLoader();
+  		
+  		for( IProduct p : loader.loadProducts())
+  		{
+  			end.addProduct(p);
+  		}
+  		
+  		String check = "";
+  		
+  		String output = tester.checkOutput();
+  		
+  		assertEquals(check, output);
+  		
+    }
+    
+    /*Integration test2
+     * load all products
+     * adds some items to the cart 
+     * displays the cart
+     * checkouts from the cart
+     */
+    @Test
+    public void FrontEndTest2()
+    {
+
+  	  TextUITester tester = new TextUITester("");
+
+  		Scanner scn2 = new Scanner(System.in);
+
+  		UPCChecker checker = new UPCChecker();
+
+  		InventoryBackend end = new InventoryBackend();
+  		
+  		ProductLoader loader = new ProductLoader();
+  		
+  		for( IProduct p : loader.loadProducts())
+  		{
+  			end.addProduct(p);
+  		}
+  		
+  		String check = "";
+  		
+  		String output = tester.checkOutput();
+  		
+  		assertEquals(check, output);
+  		
     }
     
 }
