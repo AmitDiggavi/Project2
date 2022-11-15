@@ -4,9 +4,11 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.ArrayList;
 
 public class ProductLoader implements IProductLoader {
-    public IProduct[] loadProducts() {
+    public ArrayList<IProduct> loadProducts() {
+        ArrayList<IProduct> products = new ArrayList<>();
         try {
             File fXmlFile = new File("products.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -15,7 +17,6 @@ public class ProductLoader implements IProductLoader {
             doc.getDocumentElement().normalize();
             NodeList allProducts = doc.getElementsByTagName("product");
             int numProducts = allProducts.getLength();
-            IProduct[] products = new IProduct[numProducts];
 
             for (int i = 0; i < numProducts; i++) {
                 NodeList product = allProducts.item(i).getChildNodes();
@@ -24,7 +25,7 @@ public class ProductLoader implements IProductLoader {
                 float price = Float.parseFloat(product.item(5).getTextContent().replace("$", ""));
                 int quantity = Integer.parseInt(product.item(7).getTextContent());
                 String UPC = product.item(9).getTextContent();
-                products[i] = new Product(name, category, price, quantity, UPC);
+                products.add(new Product(name, category, price, quantity, UPC));
             }
 
             return products;

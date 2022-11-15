@@ -62,7 +62,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -122,7 +122,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
      
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
@@ -184,7 +184,7 @@ public class GSTMapperFrontendTest
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
-	  InventoryBackend end = new IventoryBackend();
+	  InventoryBackend end = new InventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -305,7 +305,7 @@ public class GSTMapperFrontendTest
 	  
       UPCChecker checker = new UPCChecker();
 	  
-      InventoryBackend end = new IventoryBackend();
+      InventoryBackend end = new InventoryBackend();
 	  
       GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -436,7 +436,7 @@ public class GSTMapperFrontendTest
     @Test
     public void CodeReviewBackendDeveloperTest1()
     {
-	  
+		InventoryBackend backend = new InventoryBackend();
         Product chips = new Product("Chips", "Snacks",
             3.0f, 1, "123456788");
         Product beef = new Product("Beef", "Meats",
@@ -456,9 +456,10 @@ public class GSTMapperFrontendTest
     @Test
     public void CodeReviewBackendDeveloperTest2()
     {
+		InventoryBackend backend = new InventoryBackend();
       Product chips = new Product("Chips", "Snacks", 3.0f, 1, "123456788");
 
-      assertEquals(chips, backend.getByUpc("123456788"));
+      assertEquals(chips, backend.getByUPC("123456788"));
     }
     
 }
