@@ -56,4 +56,26 @@ public class DataWranglerTests {
             assertNotNull(product.getUPC());
         }
     }
+
+    @Test
+    public void integrationTestBackendUsesProduct() {
+        ArrayList<IProduct> products = new ProductLoader().loadProducts();
+        IGSTBackend backend = new InventoryBackend();
+        for (IProduct product : products) {
+            backend.addProduct(product);
+        }
+
+        assertEquals(backend.getByUPC("8904319300894").getClass(), products.get(0).getClass());
+    }
+
+    @Test
+    public void integrationTestBackendCanAddLoadedProducts() {
+        ArrayList<IProduct> products = new ProductLoader().loadProducts();
+        IGSTBackend backend = new InventoryBackend();
+        for (IProduct product : products) {
+            backend.addProduct(product);
+        }
+
+        assertEquals(products.get(0), backend.getByUPC(products.get(0).getUPC()));
+    }
 }
