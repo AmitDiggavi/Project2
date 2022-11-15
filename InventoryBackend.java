@@ -90,23 +90,25 @@ public class InventoryBackend implements IGSTBackend {
                     }
                 }
             } else if (word.equals("")) {
-                if (product.getCategory().contains(getCategoryFilter()) ||
-                    product.getPrice() <= priceFilter) {
-                    //no word display all based on filter
+                if (getCategoryFilter() == "" && product.getPrice() <= getPriceFilter()) {
+                    listOfProducts.add(product);
+                } else if (getPriceFilter() == null &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                } else if (product.getPrice() <= getPriceFilter() &&
+                    product.getCategory().equals(getCategoryFilter())) {
                     listOfProducts.add(product);
                 }
-            } else if (product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                (product.getCategory().contains(getCategoryFilter()) &&
-                    product.getPrice() <= priceFilter)) {
-                //searching by word and satisfies both filters
-                listOfProducts.add(product);
-
-            } else if ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                (product.getCategory().contains(getCategoryFilter()))) ||
-                ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                    product.getPrice() <= priceFilter))) {
-                //searching by word and one filter
-                listOfProducts.add(product);
+            } else if (product.getName().toLowerCase().contains(word.toLowerCase())){
+                if (getCategoryFilter() == "" && product.getPrice() <= getPriceFilter()) {
+                    listOfProducts.add(product);
+                } else if (getPriceFilter() == null &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                } else if (product.getPrice() <= getPriceFilter() &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                }
             }
         }
 
