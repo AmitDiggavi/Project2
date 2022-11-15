@@ -28,15 +28,19 @@ public class AlgorithmEngineerTests {
     public void test2()
     {
         String upc1 = "1234567890128";
-        String upc2 = "1234567890135";
-        String upc3 = "1234567830131";
+        String upc2 = "8904319300894";
+        String upc3 = "5410667151390";
         String upc4 = "21324234129";
+        String upc5 = "3";
+        String upc6 = "8904319300894";
         UPCChecker c = new UPCChecker();
 
         assertTrue(c.check(upc1));
         assertTrue(c.check(upc2));
         assertTrue(c.check(upc3));
         assertFalse(c.check(upc4));
+        assertFalse(c.check(upc5));
+        assertTrue(c.check(upc6));
 
     }
 
@@ -91,7 +95,7 @@ public class AlgorithmEngineerTests {
 
     /**
      * checks if the UPC checker is working properly after loading the products.
-     */
+    */
 
     @Test
     public void IntegrationTest1()
@@ -99,7 +103,18 @@ public class AlgorithmEngineerTests {
         ProductLoader loaded = new ProductLoader();
         UPCChecker checker = new UPCChecker();
 
-        assertTrue(checker.check(loaded.toString()));
+        for(IProduct product : loaded.loadProducts())
+        {
+            boolean isWrong = checker.check(product.getUPC());
+            if (!isWrong) {
+                System.out.println(product.getName());
+
+            }
+//            assertTrue(checker.check(product.getUPC()));
+        }
+
 
     }
+
+
 }
