@@ -146,7 +146,9 @@ public class InventoryBackend implements IGSTBackend {
      * @param filterBy the string that the product's price must be less than or equal to
      */
     public void setPriceFilter(String filterBy){
-       priceFilter = Double.parseDouble(filterBy);
+       if (filterBy != null) {
+           priceFilter = Double.parseDouble(filterBy);
+       }
     }
 
     /**
