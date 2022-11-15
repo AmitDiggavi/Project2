@@ -32,10 +32,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Goodbye, Thanks for shopping!\n";
       
@@ -63,10 +63,14 @@ public class GSTMapperFrontendTests
 	  UPCChecker checker = new UPCChecker();
 	  
 	  InventoryBackend end = new InventoryBackend();
-          
-      	GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+	  
+	  Product Wings = new Product("Chicken Wings", "Meats", 7.50, 10, "3662994007044");
+	  
+	  end.addProduct(Wings);
+	       
+      GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
 
-		test.runCommandLoop();
+	  test.runCommandLoop();
 
 		String expected = "Welcome to the Grocery Store Inventory Application!\n"
 				+ "—--------------------------------------------------\n"
@@ -76,14 +80,14 @@ public class GSTMapperFrontendTests
 				+ "          2)Search by Item name\n"
 				+ "          3)Search by Category\n"
 				+ "          4)Set Maximum Price filter\n"
-				+ "          5) Display items in cart\n"
-				+ "          6) Remove items from cart\n"
-				+ "          7) Checkout all items\n"
-				+ "          8) Exit Application\n"
+				+ "          5)Display items in cart\n"
+				+ "          6)Remove items from cart\n"
+				+ "          7)Checkout all items\n"
+				+ "          8)Exit Application\n"
 				+ "\n"
 				+ "You are in the Lookup UPC menu:\n"
 				+ "          Enter UPC to look up:\n"
-				+ "Category filter: \n"
+				+ "Category filter:null\n"
 				+ "Price filter: null\n"
 				+ "1. Chicken Wings $7.5\n"
 				+ "Which product would you like to add to cart? 1 - 1\n"
@@ -93,10 +97,10 @@ public class GSTMapperFrontendTests
 				+ "          2)Search by Item name\n"
 				+ "          3)Search by Category\n"
 				+ "          4)Set Maximum Price filter\n"
-				+ "          5) Display items in cart\n"
-				+ "          6) Remove items from cart\n"
-				+ "          7) Checkout all items\n"
-				+ "          8) Exit Application\n"
+				+ "          5)Display items in cart\n"
+				+ "          6)Remove items from cart\n"
+				+ "          7)Checkout all items\n"
+				+ "          8)Exit Application\n"
 				+ "\n"
 				+ "Goodbye, Thanks for shopping!\n";
 
@@ -123,13 +127,12 @@ public class GSTMapperFrontendTests
 	  UPCChecker checker = new UPCChecker();
 	  
 	  InventoryBackend end = new InventoryBackend();
+	  
+	  Product Legs = new Product("Chicken Legs", "Meats", 2.50, 10, "4088600511368");
 
-		ProductLoader loader = new ProductLoader();
-		for (IProduct product : loader.loadProducts()) {
-			end.addProduct(product);
-		}
+	  end.addProduct(Legs);
 
-		GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+	  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
       test.runCommandLoop();
       
@@ -141,10 +144,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "You are in the Search Item menu:\n"
       		+ "          Enter item name:\n"
@@ -158,10 +161,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Goodbye, Thanks for shopping!\n";
       
@@ -182,18 +185,22 @@ public class GSTMapperFrontendTests
   @Test
   public void test4()
   {
- TextUITester tester = new TextUITester("2\nbroccoli\n1\n2\napple juice\n1\n5\n7\n5\n8\n");
+      TextUITester tester = new TextUITester("2\nbroccoli\n1\n2\napple juice\n1\n5\n7\n5\n8\n");
       
 	  Scanner scn2 = new Scanner(System.in);
 	  
 	  UPCChecker checker = new UPCChecker();
 	  
 	  InventoryBackend end = new InventoryBackend();
+	  
+	  Product Broccoli = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
+	  
+	  Product Apple = new Product("Apple Juice", "Beverages", 2.99, 10, "0602804013110");
+	  
+	  end.addProduct(Broccoli);
+	  
+	  end.addProduct(Apple);
 
-		ProductLoader loader = new ProductLoader();
-		for (IProduct product : loader.loadProducts()) {
-			end.addProduct(product);
-		}
 
 		GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       
@@ -207,10 +214,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "You are in the Search Item menu:\n"
       		+ "          Enter item name:\n"
@@ -224,10 +231,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "You are in the Search Item menu:\n"
       		+ "          Enter item name:\n"
@@ -241,10 +248,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Items in cart:\n"
       		+ "1. Broccoli $4.5\n"
@@ -255,10 +262,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Items in cart:\n"
       		+ "1. Broccoli $4.5\n"
@@ -271,10 +278,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Items in cart:\n"
       		+ "Empty Cart\n"
@@ -283,10 +290,10 @@ public class GSTMapperFrontendTests
       		+ "          2)Search by Item name\n"
       		+ "          3)Search by Category\n"
       		+ "          4)Set Maximum Price filter\n"
-      		+ "          5) Display items in cart\n"
-      		+ "          6) Remove items from cart\n"
-      		+ "          7) Checkout all items\n"
-      		+ "          8) Exit Application\n"
+      		+ "          5)Display items in cart\n"
+      		+ "          6)Remove items from cart\n"
+      		+ "          7)Checkout all items\n"
+      		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Goodbye, Thanks for shopping!\n";
         
@@ -315,11 +322,14 @@ public class GSTMapperFrontendTests
 		UPCChecker checker = new UPCChecker();
 
 		InventoryBackend end = new InventoryBackend();
+		
+		Product Carrots = new Product("Carrots", "Vegetables", 2.25, 20, "5202908000174");
 
-		ProductLoader loader = new ProductLoader();
-		for (IProduct product : loader.loadProducts()) {
-			end.addProduct(product);
-		}
+	    Product groundBeef = new Product("Ground Beef", "Meats", 7.50, 10, "0024354580162");
+	    
+	    end.addProduct(Carrots);
+	    
+	    end.addProduct(groundBeef);
 
 		GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
       

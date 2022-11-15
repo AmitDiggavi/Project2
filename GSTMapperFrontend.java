@@ -39,10 +39,10 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		        + "          2)Search by Item name\n" 
 				+ "          3)Search by Category\n"
 		  		+ "          4)Set Maximum Price filter\n"
-		  		+ "          5) Display items in cart\n"
-		  		+ "          6) Remove items from cart\n"
-		  		+ "          7) Checkout all items\n"
-		  		+ "          8) Exit Application\n");
+		  		+ "          5)Display items in cart\n"
+		  		+ "          6)Remove items from cart\n"
+		  		+ "          7)Checkout all items\n"
+		  		+ "          8)Exit Application\n");
 		  
 		  int option = scn.nextInt();
 		  
@@ -98,7 +98,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 	  
 	  scn.nextLine();
 	  
-	  String upc = scn.nextLine().trim();
+	  String upc = scn.nextLine();
 	  
 	  if(upcChecker.check(upc))
 	  {
@@ -388,6 +388,28 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		}
 			
 		
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner scn2 = new Scanner(System.in);
+		  
+		  UPCChecker checker = new UPCChecker();
+		  
+		  InventoryBackend end = new InventoryBackend();
+		  
+		  ProductLoader loader = new ProductLoader();
+		  
+		  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+		  
+		  for (IProduct product : loader.loadProducts()) 
+		  {
+				end.addProduct(product);
+			}
+
+		  test.runCommandLoop();
+		  
+		  
 	}
 
 }
