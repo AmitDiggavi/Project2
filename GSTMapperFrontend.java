@@ -357,7 +357,8 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 			
 			for(IProduct L : products)
 			{
-				System.out.println((count + 1) + ". " + L.getName() + " $" + L.getPrice());
+				count++;
+				System.out.println((count) + ". " + L.getName() + " $" + L.getPrice());
 				
 			}
 	       

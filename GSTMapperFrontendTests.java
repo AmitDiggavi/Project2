@@ -152,7 +152,8 @@ public class GSTMapperFrontendTests
       		+ "\n"
       		+ "You are in the Search Item menu:\n"
       		+ "          Enter item name:\n"
-      		+ "Category filter: null\n"
+      		+ "ChIcken LeGs\n"
+      		+ "Category filter: \n"
       		+ "Price filter: null\n"
       		+ "1. Chicken Legs $2.5\n"
       		+ "Which product would you like to add to cart? 1 - 1\n"
@@ -498,7 +499,7 @@ public class GSTMapperFrontendTests
     public void FrontEndTest1()
     {
 
-  	  TextUITester tester = new TextUITester("");
+  	  TextUITester tester = new TextUITester("4\n10\n2\nm\n0\n8");
 
   		Scanner scn2 = new Scanner(System.in);
 
@@ -508,12 +509,62 @@ public class GSTMapperFrontendTests
   		
   		ProductLoader loader = new ProductLoader();
   		
+  	  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+  		
   		for( IProduct p : loader.loadProducts())
   		{
   			end.addProduct(p);
   		}
   		
-  		String check = "";
+  		 test.runCommandLoop();
+  		
+  		
+  		
+  		String check = "Welcome to the Grocery Store Inventory Application!\n"
+  				+ "—--------------------------------------------------\n"
+  				+ "\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "You are in the Filter by Maximum Price Menu:\n"
+  				+ "          Enter Maximum Price: \n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "You are in the Search Item menu:\n"
+  				+ "          Enter item name:\n"
+  				+ "Category filter: \n"
+  				+ "Price filter: 10.0\n"
+  				+ "1. 2% Milk $3.190000057220459\n"
+  				+ "2. Chicken Drumsticks $1.5\n"
+  				+ "3. Ice Cream $4.989999771118164\n"
+  				+ "Which product would you like to add to cart? 1 - 3\n"
+  				+ "Select 0 to cancel.\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "Goodbye, Thanks for shopping!\n";
   		
   		String output = tester.checkOutput();
   		
@@ -531,22 +582,123 @@ public class GSTMapperFrontendTests
     public void FrontEndTest2()
     {
 
-  	  TextUITester tester = new TextUITester("");
+  	  TextUITester tester = new TextUITester("2\ng\n4\n2\nm\n1\n5\n7\n5\n8\n");
 
-  		Scanner scn2 = new Scanner(System.in);
+  	Scanner scn2 = new Scanner(System.in);
 
-  		UPCChecker checker = new UPCChecker();
+		UPCChecker checker = new UPCChecker();
 
-  		InventoryBackend end = new InventoryBackend();
+		InventoryBackend end = new InventoryBackend();
+		
+		ProductLoader loader = new ProductLoader();
+		
+	  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
+		
+		for( IProduct p : loader.loadProducts())
+		{
+			end.addProduct(p);
+		}
+		
+		 test.runCommandLoop();
   		
-  		ProductLoader loader = new ProductLoader();
-  		
-  		for( IProduct p : loader.loadProducts())
-  		{
-  			end.addProduct(p);
-  		}
-  		
-  		String check = "";
+  		String check = "Welcome to the Grocery Store Inventory Application!\n"
+  				+ "—--------------------------------------------------\n"
+  				+ "\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "You are in the Search Item menu:\n"
+  				+ "          Enter item name:\n"
+  				+ "Category filter: \n"
+  				+ "Price filter: null\n"
+  				+ "1. Ground Beef $7.5\n"
+  				+ "2. Green Beans $3.25\n"
+  				+ "3. Grapes $6.849999904632568\n"
+  				+ "4. Chicken Thighs $8.5\n"
+  				+ "5. Chicken Wings $7.5\n"
+  				+ "6. Chicken Legs $2.5\n"
+  				+ "7. Oranges $4.849999904632568\n"
+  				+ "Which product would you like to add to cart? 1 - 7\n"
+  				+ "Select 0 to cancel.\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "You are in the Search Item menu:\n"
+  				+ "          Enter item name:\n"
+  				+ "Category filter: \n"
+  				+ "Price filter: null\n"
+  				+ "1. 2% Milk $3.190000057220459\n"
+  				+ "2. Chicken Drumsticks $1.5\n"
+  				+ "3. Ice Cream $4.989999771118164\n"
+  				+ "Which product would you like to add to cart? 1 - 3\n"
+  				+ "Select 0 to cancel.\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "Items in cart:\n"
+  				+ "1. Chicken Thighs $8.5\n"
+  				+ "2. 2% Milk $3.190000057220459\n"
+  				+ "Your total is $11.690000057220459\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "Items in cart:\n"
+  				+ "1. Chicken Thighs $8.5\n"
+  				+ "2. 2% Milk $3.190000057220459\n"
+  				+ "Your total is $3.190000057220459\n"
+  				+ "You have checked out 2 items\n"
+  				+ "Thank you for shopping\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "Items in cart:\n"
+  				+ "Empty Cart\n"
+  				+ "You are in the Main Menu:\n"
+  				+ "          1)Lookup UPC\n"
+  				+ "          2)Search by Item name\n"
+  				+ "          3)Search by Category\n"
+  				+ "          4)Set Maximum Price filter\n"
+  				+ "          5)Display items in cart\n"
+  				+ "          6)Remove items from cart\n"
+  				+ "          7)Checkout all items\n"
+  				+ "          8)Exit Application\n"
+  				+ "\n"
+  				+ "Goodbye, Thanks for shopping!\n";
   		
   		String output = tester.checkOutput();
   		
