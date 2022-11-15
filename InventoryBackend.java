@@ -78,7 +78,7 @@ public class InventoryBackend implements IGSTBackend {
         ArrayList<IProduct> listOfProducts = new ArrayList<>();
 
         for (IProduct product : treemap) {
-            if (getPriceFilter() == 0.0 && getCategoryFilter().equals("")) {
+            if (getPriceFilter() == null && getCategoryFilter().equals("")) {
                 if (word.equals("")) {
                     //no filter and no search word
                     listOfProducts.add(product);
@@ -153,7 +153,7 @@ public class InventoryBackend implements IGSTBackend {
      * Resets the price filter to null (no filter).
      */
     public void resetPriceFilter(){
-        priceFilter = 0.0;
+        priceFilter = null;
     }
 
     /**
