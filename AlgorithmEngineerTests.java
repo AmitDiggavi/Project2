@@ -3,7 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AlgorithmEngineerTests {
-g
+
     /**
      * This tests if the put method is working properly.
      */
@@ -90,13 +90,16 @@ g
     }
 
     /**
-     *
+     * checks if the UPC checker is working properly after loading the products.
      */
 
     @Test
     public void IntegrationTest1()
     {
         ProductLoader loaded = new ProductLoader();
+        UPCChecker checker = new UPCChecker();
+
+        assertTrue(checker.check(loaded.toString()));
 
     }
 }
