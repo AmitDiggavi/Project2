@@ -6,6 +6,9 @@ public class InventoryBackend implements IGSTBackend {
     protected Double priceFilter;
     protected String categoryFilter = "";
 
+    public InventoryBackend() {
+        this.treemap = new TreeMap<>();
+    }
 
     /**
      * Adds a product to cart
@@ -153,4 +156,11 @@ public class InventoryBackend implements IGSTBackend {
         priceFilter = 0.0;
     }
 
+    /**
+     * Adds a product to the treemap
+     * @param product the product to add
+     */
+    public void addProduct(IProduct product) {
+        treemap.put(product.getUPC(), product);
+    }
 }
