@@ -72,6 +72,9 @@ public class DataWranglerTests {
             backend.addProduct(product);
         }
 
-        assertEquals(products.get(0), backend.getByUPC(products.get(0).getUPC()));
+        assertEquals(
+            products.get(0).getName(),
+            backend.getByUPC(products.get(0).getUPC()).getName()
+        );
     }
 }

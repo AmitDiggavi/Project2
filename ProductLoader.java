@@ -6,7 +6,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Loads products from an XML file.
+ */
 public class ProductLoader implements IProductLoader {
+
+    /**
+     * Loads products from an XML file.
+     * @return the list of products
+     */
     public ArrayList<IProduct> loadProducts() {
         ArrayList<IProduct> products = new ArrayList<>();
         try {
@@ -30,7 +38,6 @@ public class ProductLoader implements IProductLoader {
 
             return products;
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("Error loading products");
         }
 

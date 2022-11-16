@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class BackendDeveloperTests {
     protected static InventoryBackend backend = new InventoryBackend();
@@ -28,7 +28,7 @@ public class BackendDeveloperTests {
         backend.setPriceFilter("5.0");
         assertEquals(5.0, backend.getPriceFilter());
         backend.resetPriceFilter();
-        assertEquals(0.0, backend.getPriceFilter());
+        assertNull(backend.getPriceFilter());
     }
 
     /**
@@ -75,6 +75,6 @@ public class BackendDeveloperTests {
         backend.resetCategoryFilter();
         backend.resetPriceFilter();
         assertEquals("", backend.getCategoryFilter());
-        assertEquals(0.0, backend.getPriceFilter());
+        assertNull(backend.getPriceFilter());
     }
 }
