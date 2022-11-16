@@ -1,8 +1,11 @@
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import javax.security.auth.kerberos.KeyTab;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AlgorithmEngineerTests {
 
@@ -124,9 +127,9 @@ public class AlgorithmEngineerTests {
         ProductLoader loader = new ProductLoader();
         Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
 
-        backend.addProduct(product1);
+        backend.addProductToCart(product1);
 
-        assertEquals(1, backend.treemap.size());
+        assertEquals(1, backend.cart.size());
 
         backend.removeProductFromCart(product1);
 
@@ -135,19 +138,30 @@ public class AlgorithmEngineerTests {
     }
 
     /**
-     * Testing the getCategory and getQuantity
-     * and also tests the backend
+     * Testing getCategory, getPrice, getQuantity, getUPC
      */
 
     @Test
     public void CodeReviewOfDataWrangler1()
     {
-
         Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
+
         assertEquals("Meats", product1.getCategory());
+        assertEquals(9.5, product1.getPrice());
         assertEquals(10, product1.getQuantity());
-
-
+        assertEquals("8904319300894", product1.getUPC());
     }
+
+    /**
+     *  testing the if statement in Product which should throw IllegalArgumentException
+     *  if there are nulls entered for the name, category, or UPC
+     */
+
+    @Test
+    public void CodeReviewOfDataWrangler2()
+    {
+        assertThrows(IllegalArgumentException.class, () -> { new Product(null, null, 0.0, 0, null); });
+    }
+
 
 }
