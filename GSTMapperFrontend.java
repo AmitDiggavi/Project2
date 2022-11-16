@@ -313,7 +313,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		
 				System.out.println((count) + ". " + L.getName() + " $" + L.getPrice());
 				
-				totalPrice =+ L.getPrice();
+				totalPrice = totalPrice + L.getPrice();
 			}
 			
 			System.out.println("Your total is $" + totalPrice);
@@ -352,7 +352,8 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 			
 			for(IProduct L : products)
 			{
-				count++;
+		
+			count++;
 				System.out.println((count) + ". " + L.getName() + " $" + L.getPrice());
 				
 			}
