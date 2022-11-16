@@ -90,23 +90,25 @@ public class InventoryBackend implements IGSTBackend {
                     }
                 }
             } else if (word.equals("")) {
-                if (product.getCategory().contains(getCategoryFilter()) ||
-                    product.getPrice() <= priceFilter) {
-                    //no word display all based on filter
+                if (getCategoryFilter() == "" && product.getPrice() <= getPriceFilter()) {
+                    listOfProducts.add(product);
+                } else if (getPriceFilter() == null &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                } else if (product.getPrice() <= getPriceFilter() &&
+                    product.getCategory().equals(getCategoryFilter())) {
                     listOfProducts.add(product);
                 }
-            } else if (product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                (product.getCategory().contains(getCategoryFilter()) &&
-                    product.getPrice() <= priceFilter)) {
-                //searching by word and satisfies both filters
-                listOfProducts.add(product);
-
-            } else if ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                (product.getCategory().contains(getCategoryFilter()))) ||
-                ((product.getName().toLowerCase().contains(word.toLowerCase()) &&
-                    product.getPrice() <= priceFilter))) {
-                //searching by word and one filter
-                listOfProducts.add(product);
+            } else if (product.getName().toLowerCase().contains(word.toLowerCase())){
+                if (getCategoryFilter() == "" && product.getPrice() <= getPriceFilter()) {
+                    listOfProducts.add(product);
+                } else if (getPriceFilter() == null &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                } else if (product.getPrice() <= getPriceFilter() &&
+                    product.getCategory().equals(getCategoryFilter())) {
+                    listOfProducts.add(product);
+                }
             }
         }
 
@@ -122,9 +124,21 @@ public class InventoryBackend implements IGSTBackend {
      * @return the product identified by the UPC, or null if UPC not in database
      */
     public IProduct getByUPC(String UPC){
+       
+    	 for(IProduct p : treemap)
+    	 {
+    		 System.out.println(p.getName() + "  " + p.getUPC());
+    	 }
         if (!treemap.containsKey(UPC)) {
             return null;
         }
+        
+        //returning the product for the given upc
+        System.out.println();
+        System.out.println("UPC value: 4088600511368");
+        System.out.println("treemap.get(UPC) returns: ");
+        System.out.println(treemap.get(UPC));
+       
         return treemap.get(UPC);
     }
 
@@ -134,7 +148,9 @@ public class InventoryBackend implements IGSTBackend {
      * @param filterBy the string that the product's price must be less than or equal to
      */
     public void setPriceFilter(String filterBy){
-       priceFilter = Double.parseDouble(filterBy);
+       if (filterBy != null) {
+           priceFilter = Double.parseDouble(filterBy);
+       }
     }
 
     /**
@@ -157,7 +173,7 @@ public class InventoryBackend implements IGSTBackend {
      * Adds a product to the treemap
      * @param product the product to add
      */
-    public void addProduct(IProduct product) {
-        treemap.put(product.getUPC(), product);
+    public void addProduct(IProduct product) {	
+    	treemap.put(product.getUPC(), product);   
     }
 }
