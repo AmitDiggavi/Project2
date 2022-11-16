@@ -46,12 +46,12 @@ public class TreeMap<KeyType extends Comparable<KeyType>, ValueType> extends Red
             throw new NoSuchElementException("Key does not exist");
         }
 
-        Node<Pair<KeyType, ValueType>> compare_node =  new Node<>(new Pair<>(key, null));
+        Node<Pair<KeyType, ValueType>> compare_node = new Node<>(new Pair<>(key, null));
         Node<Pair<KeyType, ValueType>> current_node;
         current_node = this.root;
 
 
-        while (current_node.compareTo(compare_node) != 0)
+        while (compare_node.compareTo(current_node) != 0)
         {
 
             int compare = compare_node.compareTo(current_node);

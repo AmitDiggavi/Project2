@@ -401,7 +401,7 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		  for (IProduct product : loader.loadProducts()) 
 		  {
 				end.addProduct(product);
-			}
+		  }
 
 		  test.runCommandLoop();
 		  

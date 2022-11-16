@@ -20,6 +20,6 @@ public class Pair<KeyType extends Comparable<KeyType>, ValueType> implements Com
 
     @Override
     public int compareTo(Pair<KeyType, ValueType> compare) {
-        return key.compareTo(compare.key);
+        return key.compareTo(compare.getKey());
     }
 }

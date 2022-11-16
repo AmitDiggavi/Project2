@@ -49,7 +49,7 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
         }
 
         public int compareTo(Node<T> node) {
-            return node.data.compareTo(data);
+            return this.data.compareTo(node.data);
         }
     }
 
