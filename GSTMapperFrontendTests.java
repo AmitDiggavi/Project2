@@ -472,11 +472,34 @@ public class GSTMapperFrontendTests
     {
 			InventoryBackend backend = new InventoryBackend();
 			ProductLoader loader = new ProductLoader();
-			for (IProduct product : loader.loadProducts()) {
-				backend.addProduct(product);
-			}
-
-			assertEquals("Chicken Breast", backend.getByUPC("8904319300894").getName());
+                        Product beef = new Product("Beef", "Meats",
+            5.0f, 1, "123456789");
+			assertEquals("Beef", backend.getByUPC("123456789").getName());
     }
-    
+
+
+    /*Integration Test 1
+     * User inputing a valid upc
+     * checking the upc 
+     * displaying the product
+     */
+    @Test
+    public void IntegrationTest1()
+    {
+		InventoryBackend backend = new InventoryBackend();
+		ProductLoader loader = new ProductLoader();
+		for (IProduct product : loader.loadProducts()) {
+			backend.addProduct(product);
+		}
+            assertEquals("Chicken Breats", backend.getByUPC("8904319300894").getName());
+
+    }
+
+    /*Integration Test 2
+     * 
+     */
+    @Test
+    public void IntegrationTest2()
+    {
+    }
 }
