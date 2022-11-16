@@ -47,6 +47,7 @@ public class GSTMapperFrontendTests
       
 	  
   }
+   
   /*
    * Role Code Test 2
    * This test is check if the product is return for a valid upc
@@ -58,17 +59,17 @@ public class GSTMapperFrontendTests
   public void test2()
   {
 TextUITester tester = new TextUITester("1\n0037597902509\n0\n8\n");
-      
+
 	  Scanner scn2 = new Scanner(System.in);
-	  
+
 	  UPCChecker checker = new UPCChecker();
-	  
+
 	  InventoryBackend backend = new InventoryBackend();
-		
+
 	  GSTMapperFrontend test = new GSTMapperFrontend(backend,checker, scn2);
-		
+
 	  Product Beans = new Product("Green Beans", "Vegetables", 3.25, 20, "0037597902509");
-	  
+
 	  backend.addProduct(Beans);
 	  
 	  test.runCommandLoop();
@@ -104,60 +105,58 @@ TextUITester tester = new TextUITester("1\n0037597902509\n0\n8\n");
 	  		+ "          8)Exit Application\n"
 	  		+ "\n"
 	  		+ "Goodbye, Thanks for shopping!\n";
-      
-     
-      
+
 		String check = tester.checkOutput();
 
 		assertEquals(expected, check);
-	  
+
   }
-  
+
   /*
    * Role Code Test 3
    * This test is to check if all products are returned after entering a character
-   * The user inputs 
+   * The user inputs
    *it returns a product with the same name, but ignores case
    */
   @Test
   public void test3()
   {
 TextUITester tester = new TextUITester("2\nb\n0\n8\n");
-      
+
 	  Scanner scn2 = new Scanner(System.in);
-	  
+
 	  UPCChecker checker = new UPCChecker();
-	  
+
 	  InventoryBackend backend = new InventoryBackend();
-		
+
 	  GSTMapperFrontend test = new GSTMapperFrontend(backend,checker, scn2);
-	  
+
 	  Product groundBeef = new Product("Ground Beef", "Meats", 7.50, 10, "0024354580162");
-	    
+
 	  backend.addProduct(groundBeef);
-	    
+
 	  Product Beans = new Product("Green Beans", "Vegetables", 3.25, 20, "0037597902509");
-	    
+
 	  backend.addProduct(Beans);
-	    
+
 	  Product Turkey = new Product("Turkey Breast", "Meats", 10.50, 10, "0810051802924");
 
 	  backend.addProduct(Turkey);
-	    
+
 	  Product Broccoli = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
-	    
+
 	  backend.addProduct(Broccoli);
-	    
+
 	  Product Steak = new Product("Beef Steak", "Meats", 12.50, 10, "5410667151390");
-	    
+
 	  backend.addProduct(Steak);
-	    
+
 	  Product Breast = new Product("Chicken Breast", "Meats", 9.50, 10, "8904319300894");
-	    
+
 	  backend.addProduct(Breast);
-	  
+
 	  test.runCommandLoop();
-	  
+
 	  String expected = "Welcome to the Grocery Store Inventory Application!\n"
 	  		+ "—--------------------------------------------------\n"
 	  		+ "\n"
@@ -194,14 +193,13 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 	  		+ "          8)Exit Application\n"
 	  		+ "\n"
 	  		+ "Goodbye, Thanks for shopping!\n";
-	  
+
 	  String output = tester.checkOutput();
-	  
+
 	  assertEquals(expected, output);
-	  
+
   }
-  
-  
+
   /*
    * Role Code Test 4
    * This test is check if all the items added to cart are displayed
@@ -214,25 +212,25 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
   public void test4()
   {
       TextUITester tester = new TextUITester("2\nbroccoli\n1\n2\ncarrot\n1\n5\n7\n5\n8\n");
-      
+
 	  Scanner scn2 = new Scanner(System.in);
-	  
+
 	  UPCChecker checker = new UPCChecker();
-	  
+
 	  InventoryBackend backend = new InventoryBackend();
-		
+
 	  GSTMapperFrontend test = new GSTMapperFrontend(backend,checker, scn2);
-		
+
 	  Product Broccoli = new Product("Broccoli", "Vegetables", 4.25, 20, "4056289367088");
-	  
+
 	  backend.addProduct(Broccoli);
-	  
+
 	  Product Carrots = new Product("Carrots", "Vegetables", 2.25, 20, "5202908000174");
-	  		
+
 	  backend.addProduct(Carrots);
-      
+
       test.runCommandLoop();
-      
+
       String expected = "Welcome to the Grocery Store Inventory Application!\n"
       		+ "—--------------------------------------------------\n"
       		+ "\n"
@@ -323,20 +321,20 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
       		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Goodbye, Thanks for shopping!\n";
-        
+
       String check = tester.checkOutput();
-      
+
       assertEquals(expected, check);
-	  
-	  
+
+
   }
-  
-  /*
+
+    /*
    * Role Code Test 5
    * This test is to check if the selected items are removed from the cart
    * the user adds a few items of his choice to the cart
    * then he is given the option to remove selected items
-   * it then removes the item 
+   * it then removes the item
    * the cart is displayed before and after removal to check the change
    */
   @Test
@@ -349,39 +347,39 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 		UPCChecker checker = new UPCChecker();
 
 		InventoryBackend backend = new InventoryBackend();
-			
+
 	    GSTMapperFrontend test = new GSTMapperFrontend(backend,checker, scn2);
-	    
+
 	    Product Carrots = new Product("Carrots", "Vegetables", 2.25, 20, "5202908000174");
-  		
+
 		backend.addProduct(Carrots);
-		
+
 	    Product groundBeef = new Product("Ground Beef", "Meats", 7.50, 10, "0024354580162");
-	    
+
 	    backend.addProduct(groundBeef);
-	    
+
 	    Product Beans = new Product("Green Beans", "Vegetables", 3.25, 20, "0037597902509");
-	    
+
 	    backend.addProduct(Beans);
-	    
+
 	    Product Turkey = new Product("Turkey Breast", "Meats", 10.50, 10, "0810051802924");
 
 	    backend.addProduct(Turkey);
-	    
+
 	    Product Broccoli = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
-	    
+
 	    backend.addProduct(Broccoli);
-	    
+
 	    Product Steak = new Product("Beef Steak", "Meats", 12.50, 10, "5410667151390");
-	    
+
 	    backend.addProduct(Steak);
-	    
+
 	    Product Breast = new Product("Chicken Breast", "Meats", 9.50, 10, "8904319300894");
-	    
+
 	    backend.addProduct(Breast);
-	    
+
       test.runCommandLoop();
-      
+
       String expected = "Welcome to the Grocery Store Inventory Application!\n"
       		+ "—--------------------------------------------------\n"
       		+ "\n"
@@ -483,14 +481,15 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
       		+ "          8)Exit Application\n"
       		+ "\n"
       		+ "Goodbye, Thanks for shopping!\n";
-      
+
       String check = tester.checkOutput();
-      
+
       assertEquals(expected, check);
-	  
+
   }
-  
-   /*
+
+
+  /*
     *Code review BackendDeveloper Test 1
     *Testing add and remove methods of backend
     */
@@ -521,11 +520,11 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 			InventoryBackend backend = new InventoryBackend();
 
 		    //Product Breast = new Product("Chicken Breast", "Meats", 9.50, 10, "8904319300894");
-            
+
 		    //backend.addProduct(Breast);
-			
+
 			ProductLoader loader = new ProductLoader();
-			
+
 			for( IProduct p : loader.loadProducts())
 			{
 				backend.addProduct(p);
@@ -533,7 +532,7 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 
 			assertEquals("Chicken Breast", backend.getByUPC("8904319300894").getName());
     }
-    
+
     /*Integration test1
      * load all products
      * search items using a price filter
@@ -549,20 +548,20 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
   		UPCChecker checker = new UPCChecker();
 
   		InventoryBackend end = new InventoryBackend();
-  		
+
   		ProductLoader loader = new ProductLoader();
-  		
+
   	  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
-  		
+
   		for( IProduct p : loader.loadProducts())
   		{
   			end.addProduct(p);
   		}
-  		
+
   		 test.runCommandLoop();
-  		
-  		
-  		
+
+
+
   		String check = "Welcome to the Grocery Store Inventory Application!\n"
   				+ "—--------------------------------------------------\n"
   				+ "\n"
@@ -608,16 +607,16 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
   				+ "          8)Exit Application\n"
   				+ "\n"
   				+ "Goodbye, Thanks for shopping!\n";
-  		
+
   		String output = tester.checkOutput();
-  		
+
   		assertEquals(check, output);
-  		
+
     }
-    
+
     /*Integration test2
      * load all products
-     * adds some items to the cart 
+     * adds some items to the cart
      * displays the cart
      * checkouts from the cart
      */
@@ -632,18 +631,18 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 		UPCChecker checker = new UPCChecker();
 
 		InventoryBackend end = new InventoryBackend();
-		
+
 		ProductLoader loader = new ProductLoader();
-		
+
 	  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
-		
+
 		for( IProduct p : loader.loadProducts())
 		{
 			end.addProduct(p);
 		}
-		
+
 		 test.runCommandLoop();
-  		
+
   		String check = "Welcome to the Grocery Store Inventory Application!\n"
   				+ "—--------------------------------------------------\n"
   				+ "\n"
@@ -742,11 +741,12 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
   				+ "          8)Exit Application\n"
   				+ "\n"
   				+ "Goodbye, Thanks for shopping!\n";
-  		
+
   		String output = tester.checkOutput();
-  		
+
   		assertEquals(check, output);
-  		
+
     }
-    
+
 }
+
