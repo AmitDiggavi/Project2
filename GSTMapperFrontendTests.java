@@ -143,7 +143,7 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 
 	  backend.addProduct(Turkey);
 
-	  Product Broccoli = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
+	  Product Broccoli = new Product("Broccoli", "Vegetables", 4.25, 20, "4056289367088");
 
 	  backend.addProduct(Broccoli);
 
@@ -177,7 +177,7 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 	  		+ "1. Ground Beef $7.5\n"
 	  		+ "2. Green Beans $3.25\n"
 	  		+ "3. Turkey Breast $10.5\n"
-	  		+ "4. Broccoli $4.5\n"
+	  		+ "4. Broccoli $4.25\n"
 	  		+ "5. Beef Steak $12.5\n"
 	  		+ "6. Chicken Breast $9.5\n"
 	  		+ "Which product would you like to add to cart? 1 - 6\n"
@@ -195,6 +195,8 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 	  		+ "Goodbye, Thanks for shopping!\n";
 
 	  String output = tester.checkOutput();
+	  
+	  System.out.println(output);
 
 	  assertEquals(expected, output);
 
@@ -366,7 +368,7 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
 
 	    backend.addProduct(Turkey);
 
-	    Product Broccoli = new Product("Broccoli", "Vegetables", 4.50, 20, "4056289367088");
+	    Product Broccoli = new Product("Broccoli", "Vegetables", 4.25, 20, "4056289367088");
 
 	    backend.addProduct(Broccoli);
 
@@ -434,7 +436,7 @@ TextUITester tester = new TextUITester("2\nb\n0\n8\n");
       		+ "1. Ground Beef $7.5\n"
       		+ "2. Green Beans $3.25\n"
       		+ "3. Turkey Breast $10.5\n"
-      		+ "4. Broccoli $4.5\n"
+      		+ "4. Broccoli $4.25\n"
       		+ "5. Beef Steak $12.5\n"
       		+ "6. Chicken Breast $9.5\n"
       		+ "Which product would you like to add to cart? 1 - 6\n"
