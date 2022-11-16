@@ -24,13 +24,14 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
      * This class represents a node holding a single value within a binary tree
      * the parent, left, and right child references are always maintained.
      */
-    protected static class Node<T> {
+    protected static class Node<T extends Comparable<T>> {
         public T data;
         public Node<T> parent; // null for root node
         public Node<T> leftChild;
         public Node<T> rightChild;
 
         public int blackHeight = 0;
+
 
 
 
@@ -47,10 +48,14 @@ public class RedBlackTree<T extends Comparable<T>> implements SortedCollectionIn
             return parent != null && parent.leftChild == this;
         }
 
+        public int compareTo(Node<T> node) {
+            return node.data.compareTo(data);
+        }
     }
 
     protected Node<T> root; // reference to root node of tree, null when empty
     protected int size = 0; // the number of values in the tree
+
 
     /**
      * Performs a naive insertion into a binary search tree: adding the input

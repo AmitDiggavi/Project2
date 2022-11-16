@@ -40,30 +40,34 @@ public class TreeMap<KeyType extends Comparable<KeyType>, ValueType> extends Red
 
     private Node<Pair<KeyType, ValueType>> NodeLookup(KeyType key) throws NoSuchElementException
     {
-
-        Node<Pair<KeyType, ValueType>> node =  new Node<>(new Pair<>(key , null));
-
-        while (node != null)
+        if(!containsKey(key))
         {
-            int compare = key.compareTo(node.data.getKey());
+            throw new NoSuchElementException("Key does not exist");
+        }
+
+        Node<Pair<KeyType, ValueType>> compare_node =  new Node<>(new Pair<>(key, null));
+        Node<Pair<KeyType, ValueType>> current_node;
+        current_node = this.root;
+
+
+        while (current_node.compareTo(compare_node) != 0)
+        {
+
+            int compare = compare_node.compareTo(current_node);
+
 
             if(compare > 0)
             {
-                node = node.rightChild;
-            }
+                current_node = current_node.rightChild;
 
-            if(compare < 0)
-            {
-                node = node.leftChild;
             }
-
-            if(compare == 0)
+            else
             {
-                return node;
+                current_node = current_node.leftChild;
             }
 
         }
-        throw new NullPointerException("Key cannot be found");
+       return current_node;
     }
 
     @Override

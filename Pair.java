@@ -1,6 +1,6 @@
 public class Pair<KeyType extends Comparable<KeyType>, ValueType> implements Comparable<Pair<KeyType, ValueType>> {
 
-    private KeyType key;
+    private  KeyType key;
     private ValueType value;
 
     public Pair(KeyType key, ValueType value) {

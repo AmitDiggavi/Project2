@@ -17,9 +17,9 @@ public class AlgorithmEngineerTests {
         map.put("b", 2);
         map.put("c", 3);
 
-        System.out.println(map.get("a"));
 
-        assertEquals(3, map.size());
+
+        assertEquals(true, map.containsKey("a"));
     }
 
     /**
@@ -52,12 +52,12 @@ public class AlgorithmEngineerTests {
     @Test
     public void test3()
     {
-        TreeMap<String, Integer> map = new TreeMap<>();
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
+        TreeMap<String, String> map = new TreeMap<>();
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
 
-        assertEquals(map.get("a"), map.get("a"));
+        assertEquals("1", map.get("a"));
     }
 
     /**
