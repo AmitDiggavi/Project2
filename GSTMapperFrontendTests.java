@@ -71,6 +71,8 @@ TextUITester tester = new TextUITester("1\n0037597902509\n0\n8\n");
 	  
 	  backend.addProduct(Beans);
 	  
+	  test.runCommandLoop();
+	  
 	  String expected = "Welcome to the Grocery Store Inventory Application!\n"
 	  		+ "—--------------------------------------------------\n"
 	  		+ "\n"
@@ -103,10 +105,9 @@ TextUITester tester = new TextUITester("1\n0037597902509\n0\n8\n");
 	  		+ "\n"
 	  		+ "Goodbye, Thanks for shopping!\n";
       
-      test.runCommandLoop();
+     
       
 		String check = tester.checkOutput();
-		System.out.println(check);
 
 		assertEquals(expected, check);
 	  
