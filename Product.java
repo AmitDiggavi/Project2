@@ -5,7 +5,11 @@ public class Product implements IProduct {
     int quantity;
     String UPC;
 
-    public Product(String name, String category, double price, int quantity, String UPC) {
+    public Product(String name, String category, double price, int quantity, String UPC) throws IllegalArgumentException {
+        if (name == null || category == null || UPC == null) {
+            throw new IllegalArgumentException("Name, Category, or UPC is null");
+        }
+
         this.name = name;
         this.category = category;
         this.price = price;

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataWranglerTests {
 
     @Test
-    public void testProduct() {
+    public void testProductName() {
         Product product = new Product(
             "Test Product",
             "Test Category",
@@ -17,10 +17,6 @@ public class DataWranglerTests {
         );
 
         assertEquals("Test Product", product.getName());
-        assertEquals("Test Category", product.getCategory());
-        assertEquals(1.99, product.getPrice(), 0.001);
-        assertEquals(100, product.getQuantity());
-        assertEquals("123456789012", product.getUPC());
     }
 
     @Test
