@@ -1,3 +1,8 @@
+run:
+	javac GSTMapper.java
+	java GSTMapper
+	@$(MAKE) clean
+
 runTests: compileTests
 	java -jar junit5.jar -cp . -c BackendDeveloperTests -c DataWranglerTests -c GSTMapperFrontendTests -c AlgorithmEngineerTests
 	@$(MAKE) clean

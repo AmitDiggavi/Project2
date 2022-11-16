@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataWranglerTests {
 
     @Test
-    public void testProduct() {
+    public void testProductName() {
         Product product = new Product(
             "Test Product",
             "Test Category",
@@ -17,10 +17,6 @@ public class DataWranglerTests {
         );
 
         assertEquals("Test Product", product.getName());
-        assertEquals("Test Category", product.getCategory());
-        assertEquals(1.99, product.getPrice(), 0.001);
-        assertEquals(100, product.getQuantity());
-        assertEquals("123456789012", product.getUPC());
     }
 
     @Test
@@ -55,5 +51,27 @@ public class DataWranglerTests {
             assertTrue(product.getQuantity() > 0);
             assertNotNull(product.getUPC());
         }
+    }
+
+    @Test
+    public void integrationTestBackendUsesProduct() {
+        ArrayList<IProduct> products = new ProductLoader().loadProducts();
+        IGSTBackend backend = new InventoryBackend();
+        for (IProduct product : products) {
+            backend.addProduct(product);
+        }
+
+        assertEquals(backend.getByUPC("8904319300894").getClass(), products.get(0).getClass());
+    }
+
+    @Test
+    public void integrationTestBackendCanAddLoadedProducts() {
+        ArrayList<IProduct> products = new ProductLoader().loadProducts();
+        IGSTBackend backend = new InventoryBackend();
+        for (IProduct product : products) {
+            backend.addProduct(product);
+        }
+
+        assertEquals(products.get(0), backend.getByUPC(products.get(0).getUPC()));
     }
 }

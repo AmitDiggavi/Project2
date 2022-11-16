@@ -71,9 +71,8 @@ public class UPCChecker implements IUPCChecker{
 
             int remainder = sum_of_sums % 10;
 
-            if (remainder > 0) {
+            if (remainder > 0 || remainder == 0) {
                 int subtract = 10 - remainder;
-                System.out.println(subtract);
                 return true;
             }
         }

@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AlgorithmEngineerTests {
 
@@ -15,9 +15,9 @@ public class AlgorithmEngineerTests {
         map.put("b", 2);
         map.put("c", 3);
 
-        System.out.println(map.get("a"));
 
-        assertEquals(3, map.size());
+
+        assertEquals(true, map.containsKey("a"));
     }
 
     /**
@@ -28,15 +28,19 @@ public class AlgorithmEngineerTests {
     public void test2()
     {
         String upc1 = "1234567890128";
-        String upc2 = "1234567890135";
-        String upc3 = "1234567830131";
+        String upc2 = "8904319300894";
+        String upc3 = "5410667151390";
         String upc4 = "21324234129";
+        String upc5 = "3";
+        String upc6 = "8904319300894";
         UPCChecker c = new UPCChecker();
 
         assertTrue(c.check(upc1));
         assertTrue(c.check(upc2));
         assertTrue(c.check(upc3));
         assertFalse(c.check(upc4));
+        assertFalse(c.check(upc5));
+        assertTrue(c.check(upc6));
 
     }
 
@@ -46,12 +50,12 @@ public class AlgorithmEngineerTests {
     @Test
     public void test3()
     {
-        TreeMap<String, Integer> map = new TreeMap<>();
-        map.put("a", 1);
-        map.put("b", 2);
-        map.put("c", 3);
+        TreeMap<String, String> map = new TreeMap<>();
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
 
-        assertEquals(map.get("a"), map.get("a"));
+        assertEquals("1", map.get("a"));
     }
 
     /**
@@ -91,7 +95,7 @@ public class AlgorithmEngineerTests {
 
     /**
      * checks if the UPC checker is working properly after loading the products.
-     */
+    */
 
     @Test
     public void IntegrationTest1()
@@ -99,7 +103,60 @@ public class AlgorithmEngineerTests {
         ProductLoader loaded = new ProductLoader();
         UPCChecker checker = new UPCChecker();
 
-        assertTrue(checker.check(loaded.toString()));
+        for(IProduct product : loaded.loadProducts())
+        {
+         assertTrue(checker.check(product.getUPC()));
+        }
+
 
     }
+
+    /**
+     * This is to test the backend add and remove method
+     */
+
+    @Test
+    public void IntegrationTest2()
+    {
+        InventoryBackend backend = new InventoryBackend();
+        ProductLoader loader = new ProductLoader();
+        Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
+
+        backend.addProductToCart(product1);
+
+        assertEquals(1, backend.cart.size());
+
+        backend.removeProductFromCart(product1);
+
+        assertEquals(0,backend.cart.size());
+
+    }
+
+    /**
+     * Testing getCategory, getPrice, getQuantity, getUPC
+     */
+
+    @Test
+    public void CodeReviewOfDataWrangler1()
+    {
+        Product product1 = new Product("Chicken Breasts", "Meats", 9.5, 10,  "8904319300894");
+
+        assertEquals("Meats", product1.getCategory());
+        assertEquals(9.5, product1.getPrice());
+        assertEquals(10, product1.getQuantity());
+        assertEquals("8904319300894", product1.getUPC());
+    }
+
+    /**
+     *  testing the if statement in Product which should throw IllegalArgumentException
+     *  if there are nulls entered for the name, category, or UPC
+     */
+
+    @Test
+    public void CodeReviewOfDataWrangler2()
+    {
+        assertThrows(IllegalArgumentException.class, () -> { new Product(null, null, 0.0, 0, null); });
+    }
+
+
 }
