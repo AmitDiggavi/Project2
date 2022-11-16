@@ -387,26 +387,5 @@ public class GSTMapperFrontend implements IGSTMapperFrontend
 		
 	}
 	
-	public static void main(String[] args)
-	{
-		Scanner scn2 = new Scanner(System.in);
-		  
-		  UPCChecker checker = new UPCChecker();
-		  
-		  InventoryBackend end = new InventoryBackend();
-		  
-		  ProductLoader loader = new ProductLoader();
-		  
-		  GSTMapperFrontend test = new GSTMapperFrontend(end,checker, scn2);
-		  
-		  for (IProduct product : loader.loadProducts()) 
-		  {
-				end.addProduct(product);
-		  }
-
-		  test.runCommandLoop();
-		  
-		  
-	}
 
 }
