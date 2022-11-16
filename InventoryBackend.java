@@ -8,6 +8,10 @@ public class InventoryBackend implements IGSTBackend {
 
     public InventoryBackend() {
         this.treemap = new TreeMap<>();
+        ProductLoader loader = new ProductLoader();
+        for( IProduct product : loader.loadProducts()) {
+            addProduct(product);
+        }
     }
 
     /**
